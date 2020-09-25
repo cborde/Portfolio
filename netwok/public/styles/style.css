@@ -1,0 +1,601 @@
+/**Palette : 
+    #f1f2ee 	(241,242,238)
+	#a1bdbf 	(161,189,191)
+	#e9e5d7 	(233,229,215)
+	#784c42 	(120,76,66)
+	#e1daca 	(225,218,202)
+ */
+
+html {
+    background-image: linear-gradient( #f1f2ee, #e1daca);
+    height: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+#title{
+    background-image: url('../images/title.png');
+    width: 400px;
+    height: 100px;
+    margin: 0px auto;
+    background-size: cover;
+    top: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1{
+    width: 100%;
+    font-family: verdana;
+    color: #784c42;
+    font-size: 40px;
+    font-variant: small-caps;
+    background-color: #a1bdbf;
+    margin: 0px;
+    margin-bottom: 30px;
+    border: 10px groove #a1bdbf;
+    border-radius: 0px 0px 30px 30px;
+}
+
+h1 div{
+    text-align: center;
+    display: inline-block;
+    width: 30%;
+}
+
+h2{
+	width: 20%;
+	font-family: verdana;
+	color: #784c42;
+	font-size: 15px;
+	font-variant: small-caps;
+	background-color: #a1bdbf;
+	border: 10px groove #a1bdbf;
+	border-radius: 0px 0px 30px 30px;
+	position: absolute;
+	top: 55%;
+	left: 30%;
+}
+
+h2 div{
+    text-align: center;
+    display: inline-block;
+}
+
+#jeu {
+    width:100%;
+    height:100%;
+    position: relative;
+}
+
+#kana {
+	position: relative;
+	top: 5%;
+    font-size: 50px;
+}
+
+#canvasDessin {
+    position: relative;
+    height: 500px;
+    margin: 10px auto;
+    float: left;
+    width:500px;
+}
+    
+#canvasDessin canvas {
+    cursor: none;
+    border: solid 2px #784c42;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 0px; 
+    left: 80px;
+}
+#canvasDessin canvas#overlay {
+    opacity: 0.8;
+}
+
+#canvasDessin canvas#dessin {
+    background-image: url('../images/bgDessin.png');
+    background-size: 50px 50px;
+    background-repeat: repeat;
+}
+
+#toolbox {
+    position: absolute;
+    width: 70px;
+    height: 500px;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #a1bdbf;
+    border-radius: 10px;
+    box-shadow: -5px 5px 30px #a1bdbf;
+}
+#toolbox > * {
+    position: relative;
+    width: 50px;
+    box-sizing: border-box;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    background-size: cover;
+    padding: 2px; 
+}
+#toolbox [type=radio] {
+    display: none;
+}   
+#size {
+    margin-top: 0px;
+    margin-bottom: -25px;
+}
+#toolbox label[for] {
+    border: solid 1px #000;
+}   
+#toolbox label[for=tracer] {
+    background-image: url(../images/icone-pinceau.png);   
+}
+#toolbox label[for=gommer] {
+    background-image: url(../images/icone-gomme.png);   
+}
+#toolbox label[for=ligne] {
+    background-image: url(../images/icone-trait.png);   
+}
+#toolbox label[for=rectangle] {
+    background-image: url(../images/icone-rectangle.png);   
+}
+#toolbox input:checked + label[for] {
+    box-shadow: #e9e5d7 0 0 5px;
+    background-color: #e9e5d7;
+}
+#new {
+    background-image: url(../images/icone-nouveau.png);
+    margin-bottom: -15px;
+}
+
+#toolbox input[type=radio] + div {
+    display: none;
+}
+
+#toolbox input[type=radio]:checked + div {
+    display: block;
+}
+
+#toolbox input[type=button] {
+    margin-left: -8px;
+    width: 63px;
+}
+
+#syllabe {
+	display: none;
+	background-color: rgb(161, 189, 191);
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	top: 120%;
+	left: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	border: 10px groove #a1bdbf;
+	border-radius: 30px 30px 30px 30px;
+	color: #784c42;
+	font-size: 18px;
+	padding: 2px;
+}
+
+#syllabe input[type=radio]{
+	display: none;
+}
+
+#syllabe label{
+	border: solid 1px black;
+}
+
+#syllabe input:checked + label[for] {
+    box-shadow: #e9e5d7 0 0 5px;
+    background-color: #e9e5d7;
+}
+
+#syllabeValidee {
+	display: none;
+}
+
+#syllabe label {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+#wait {
+	display: none;
+	background-color: rgb(161, 189, 191);
+	width: 300px;
+	height: 150px;
+	position: absolute;
+	top: 120%;
+	left: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	border: 10px groove #a1bdbf;
+	border-radius: 30px 30px 30px 30px;
+	color: #784c42;
+	font-size: 18px;
+	padding: 2px;
+}
+
+#waitDebut {
+	display: none;
+	background-color: rgb(161, 189, 191);
+	width: 300px;
+	height: 150px;
+	position: absolute;
+	top: 120%;
+	left: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	border: 10px groove #a1bdbf;
+	border-radius: 30px 30px 30px 30px;
+	color: #784c42;
+	font-size: 18px;
+	padding: 2px;
+}
+
+#btnMontrerKana {
+    display: block;
+}
+
+input[type=button] {
+    background-image: linear-gradient( #f1f2ee, #e1daca);
+    border: solid 2px #f1f2ee;
+    padding: 10px;
+    font-size: 80%;
+    height: 40px;
+    margin-top: 5px;
+}
+
+#joueurs {
+    float: left;
+    width:24%;
+}
+
+.joueur {
+    display: block;
+    padding: 20px;
+    box-shadow: -5px 5px 30px #a1bdbf;
+    border: groove 1px #a1bdbf;
+    background-image: linear-gradient(#a1bdbf, #92a9aa);
+    margin: 0px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+	position: relative;
+	height: 80px;
+}
+
+.joueur p{
+	display: inline;
+	margin-right: 15px;
+}
+
+#drawer {
+	background-image: url(../images/icone-dessinateur.png);
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+    background-size: cover;
+}
+
+.avatar{
+	display: block;
+	position: relative;
+	bottom: 48px;
+	left: 130px;
+}
+
+.score {
+	display: inline;
+	color: #784c42;
+	position: absolute;
+	right: 15px;
+	top: 25px;
+}
+
+.essai, .success {
+    display: inline-block;
+}
+
+.essai {
+    color: #784c42;
+}
+
+.success {
+    background-image: url(../images/etoile.png);
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+}
+
+#chat {
+    float: right;
+    width: 28%;
+    position: relative;
+	top: 20%;
+    height: 500px;
+    background-color: #a1bdbf;
+    padding: 10px;
+    margin: 0px;
+    margin-right: 10px;
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: -5px 5px 30px #a1bdbf;
+}
+
+#chat h2, #chat h3 {
+    position: absolute;
+    background-color: inherit;
+    height: 22px;
+    padding: 5px;
+    line-height: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+    border-top: inherit;
+    border-left: inherit;
+    border-right: inherit;
+}
+#chat h2 {
+    top: -35px;
+    left: 0px;
+}
+#chat h3 {
+    right: -11px;
+    top: -28px;
+    transform-origin: left center;
+    transform: translateX(100%) rotate(90deg);
+}
+#chat main {
+    position: relative;
+    height: calc(100% - 30px);
+    width: calc(100% - 5px);
+    background-color: #f1f2ee;
+    overflow-y: scroll;
+    line-height: 1.2;
+}
+#chat main p {
+    line-height: 1;
+    font-size: 16px;
+    margin: 3px;
+}
+#chat main .mp {
+    color: darkblue;   
+}
+#chat main .moi {
+    color: green;   
+}
+#chat main .system {
+    color: red;   
+}
+#chat main img {
+    max-width: 50%;
+    vertical-align: text-top;
+}
+
+/** Pied de zone de chat */        
+#chat footer {
+    position: absolute;
+    bottom: 0;
+    padding: 0px; 
+    width: calc(100% - 20px);
+    height: 50px;
+    background-color: inherit;
+}
+#chat footer input {
+    font-size: 15px;
+}
+#chat > footer input:first-child {
+    width: calc(100% - 250px);
+    font-size: 12px;
+}
+#chat > footer input:last-child {
+    float: right;
+}
+        
+/** 
+ * Style pour les émoticones
+ */
+
+.emoji {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-image: url("../images/emoji.png");
+    background-size: 72px 72px;
+}  
+.rire {
+    background-position: -4px -4px;   
+}
+.zzz {
+    background-position: -28px -4px;   
+}
+.love {
+    background-position: -52px -4px;   
+}
+.holala {
+    background-position: -4px -28px;   
+}
+.grrr {
+    background-position: -28px -28px;   
+}
+.triste {
+    background-position: -52px -28px;   
+}
+.sourire {
+    background-position: -4px -52px;   
+}
+.banane {
+    background-position: -28px -52px;   
+}
+.malade {
+    background-position: -52px -52px;   
+}
+        
+        
+body > div, body > input[type=radio]{
+    display: none;
+}
+        
+input[type=radio]:checked + div {
+    display: block;
+}
+    
+#errorLog {
+    color: red;
+    padding-top: 10px;
+}
+        
+#logScreen {
+    background: rgba(200, 200, 200, 0.8);
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+#logScreen > div {
+    text-align: center;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    background-color: white;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    border: solid 2px #a1bdbf;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px #000;
+}
+#logScreen input:not([type=button]), #bcImages input {
+    padding: 3px;
+    font-size: 80%;
+    margin: 10px;
+}
+
+.ligneSep{
+    width: 100%;
+    height: 5px;
+    background-color: #a1bdbf;
+}
+
+#bcImage {
+    width: 400px;
+    height: 80%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: darkgrey;
+    border: solid 1px #333;
+    box-shadow: 10px 10px 10px #000;
+    border-radius: 5px;
+}
+#bcImage input[type=text] {
+    margin: 10px;
+    width: calc(100% - 120px);
+}
+#bcImage #btnFermer {
+    position: absolute; 
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#bcImage #bcResults {
+    height: calc(100% - 80px);
+    background-color: white;
+    overflow: scroll;
+}
+#bcImage #bcResults {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+#bcResults img {
+    width: 190px;
+    margin: 2px;
+    height: auto;
+    cursor: pointer;
+    align-self: center;
+}
+
+
+/* Avatar selection */
+
+#logScreen #avatarSelection{
+	display: block;
+	position: relative;
+	left: 75%;
+}
+
+#avatarSelectionCanvas{
+	width: 300px;
+	height: 300px;
+}
+
+#avatarSelection input {
+	width: 40px;
+	height: 30px;
+	display: block;
+	position: absolute;
+}
+
+#btnLeftHair{
+	left: 30px;
+	top: 100px;
+}
+#btnRightHair{
+	right: 30px;
+	top: 100px;
+}
+#btnLeftFace{
+	left: 30px;
+	top: 140px;
+}
+#btnRightFace{
+	right: 30px;
+	top: 140px;
+}
+#btnLeftEyes{
+	left: 30px;
+	top: 180px;
+}
+#btnRightEyes{
+	right: 30px;
+	top: 180px;
+}
+#btnLeftNose{
+	left: 30px;
+	top: 220px;
+}
+#btnRightNose{
+	right: 30px;
+	top: 220px;
+}
+#btnLeftMouth{
+	left: 30px;
+	top: 260px;
+}
+#btnRightMouth{
+	right: 30px;
+	top: 260px;
+}

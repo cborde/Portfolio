@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Netwok</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/netwok.js"></script>
+    <script src="./js/dessin.js"></script>
+</head>
+
+<body>
+    <div id="title" style="display: block;"></div>
+    <input type="radio" name="btnScreen" id="radio1" checked>
+    <div id="logScreen">
+		<div id="avatarSelection">
+			<p>Ton avatar :</p>
+			<canvas id="avatarSelectionCanvas" width="300" height="300"></canvas>
+			<input type="button" value="<" id="btnLeftHair">
+			<input type="button" value=">" id="btnRightHair">
+			<input type="button" value="<" id="btnLeftFace">
+			<input type="button" value=">" id="btnRightFace">
+			<input type="button" value="<" id="btnLeftEyes">
+			<input type="button" value=">" id="btnRightEyes">
+			<input type="button" value="<" id="btnLeftMouth">
+			<input type="button" value=">" id="btnRightMouth">
+			<input type="button" value="<" id="btnLeftNose">
+			<input type="button" value=">" id="btnRightNose">
+		</div>
+        <div id="connexion">
+            <div id="errorLog"></div>
+            <p>Rejoindre un salon existant : <br>
+                <input type="text" id="pseudo" placeholder="Tapez ici votre pseudo" size="30">
+                <input type="text" id="salon" placeholder="Tapez ici l'identifiant de salon" size="10">
+                <input type="button" value="Se connecter" id="btnConnecter">
+            </p>
+            <div class="ligneSep"></div>
+            <p>Créer un salon : <br>
+                <input type="text" id="nomSalonCreer" placeholder="Tapez ici le nom du salon" size="30">
+                <input type="text" id="pseudoCreer" placeholder="Tapez ici votre pseudo" size="30">
+                <input type="number" id="dureeCreer" placeholder="Durée d'une manche">
+                <input type="number" id="nombreMancheCreer" placeholder="Nombre de manches">
+                <input type="button" value="Créer le salon" id="btnCreer"><br>
+                <input type="button" value="Enregistrer mes préférences de jeu" id="btnEnregistrer">
+                <input type="button" value="Utiliser mes préférences de jeu" id="btnPreferences">
+                <form id="options">
+                    <div>
+                        <p>Alphabet :</p>
+                        <label><input type="radio" name="radGlyphe" value="hiragana" checked> hiragana</label>
+                        <label><input type="radio" name="radGlyphe" value="katakana"> katakana</label>
+                        <label><input type="radio" name="radGlyphe" value="les2"> les deux</label>
+                    </div>
+                    
+                    <div hidden>
+                        <label><input type="checkbox" value="[aiueon]" checked disabled> a, i, u, e, o, n</label>
+                    </div>
+                    <div>
+                        <p>Suffixes :</p> 
+                        <label><input type="checkbox" value="[b-z]{1,2}a"> .a</label>
+                        <label><input type="checkbox" value="[b-z]{1,2}i"> .i</label>
+                        <label><input type="checkbox" value="[b-z]{1,2}u"> .u</label>
+                        <label><input type="checkbox" value="[b-z]{1,2}e"> .e</label>
+                        <label><input type="checkbox" value="[b-z]{1,2}o"> .o</label>
+                    </div>
+                    <div>
+                        <p>Préfixes :</p> 
+                        <table>
+                            <tr>
+                                <td><label><input type="checkbox" value="[kg][aiueo]"> k. g.</label></td>
+                                <td><label><input type="checkbox" value="[kzj].?[aiueo]"> s. z.</label></td>
+                                <td><label><input type="checkbox" value="[tcd].?[aiueo]"> t. d.</label></td>
+                            </tr>
+                            <tr>
+                                <td><label><input type="checkbox" value="n[aiueo]"> n.</label></td>
+                                <td><label><input type="checkbox" value="[hfbp][aiueo]"> h./f. b. p.</label></td>
+                                <td><label><input type="checkbox" value="m[aiueo]"> m.</label></td>
+                            </tr>
+                            <tr>
+                                <td><label><input type="checkbox" value="y[aiueo]"> y.</label></td>
+                                <td><label><input type="checkbox" value="r[aiueo]"> r.</label></td>
+                                <td><label><input type="checkbox" value="w[aiueo]"> w.</label></td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </p>
+        </div>
+    </div>
+    <input type="radio" name="btnScreen" id="radio2">
+    <div id="jeu">
+        <h1>
+            <div id="idSalon">0</div>
+            <div id="nomSalon">Nom du salon</div>
+            <div id="chrono">60s</div>
+        </h1>
+        <h2>
+			<div>Nombre de manche restantes :</div>
+			<div id="nb_manches"></div>
+        </h2>
+        <div id="joueurs"></div>
+        <div id="canvasDessin">
+            <canvas id="dessin" width="500" height="500"></canvas>
+            <canvas id="overlay" class="joueurActuel" width="500" height="500"></canvas>
+            <div id="toolbox" class="joueurActuel">
+                <input type="radio" name="radCommande" id="tracer" checked> <label for="tracer"></label>
+                <input type="radio" name="radCommande" id="gommer"> <label for="gommer"></label>
+                <input type="radio" name="radCommande" id="ligne">  <label for="ligne"></label>
+                <input type="radio" name="radCommande" id="rectangle"> <label for="rectangle"></label>        
+                <input type="range" id="size" min="1" max="50" value="5">
+				<div id="new"></div>
+                
+                    <div>
+                        <p id="syllabeValidee">prout</p>
+                        <input type="button" name="btnMontrerKana" id="btnMontrerKana" value="Aide">
+                    </div>
+                <input type="radio" name="btnKana" id="kanaRadio">
+                    <div id="kana">&#12373</div>
+            </div>
+        </div>
+        
+        <div id="syllabe">
+			<p>C'est à vous de jouer !</p>
+			<p>Choisissez la syllabe à faire deviner</p>
+			<input type="radio" name="choixSyllabe" id="choix0" checked><label id="ch0" for="choix0"></label>
+			<input type="radio" name="choixSyllabe" id="choix1"><label id="ch1" for="choix1"></label>
+			<input type="radio" name="choixSyllabe" id="choix2"><label id="ch2" for="choix2"></label>
+			<input type="button" name="btnMontrerKana" id="btnValiderSyllabe" value="Valider">
+		</div>
+		<div id="wait">
+			<p>Tous les joueurs ont trouvés !</p>
+			<p>Soyez prêt, le dessinateur choisi la syllabe</p>
+		</div>
+		<div id="waitDebut">
+			<p>Soyez prêt !</p>
+		</div>
+        <div id="chat">
+            <h2>Chat netwok - <span id="login"></span></h2>
+            <main>
+            </main>
+            <footer>
+                <input type="text" id="monMessage">
+                <input type="button" value="Envoyer" id="btnEnvoyer">
+                <input type="button" value="Image" id="btnImage">
+            </footer>
+            <div id="bcImage" style="display: none;">
+                <header>
+                    <input type="text" id="recherche" placeholder="Tapez ici le texte de votre recherche">
+                    <input type="button" value="Recherche" id="btnRechercher">
+                </header>
+                <div id="bcResults"></div>
+                <footer><input type="button" value="Fermer" id="btnFermer"></footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
