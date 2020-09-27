@@ -1,0 +1,21 @@
+class exmple2{
+	int x = 0;
+	int t[4];
+	
+	int fct(int max){
+		int y = 5;
+		while (max > 0){
+			y+=max;
+			max = max -1;
+		};
+		return y;
+	};
+	
+	main{
+		while (4 > x){
+			t[x] = fct(1);
+			writeln(t[x]);
+			x++;
+		};
+	}
+}

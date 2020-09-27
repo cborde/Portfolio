@@ -1,0 +1,17 @@
+class exemple1 {
+	final int size = 12;
+	boolean isEquals0(int a){
+		if (a == 0){
+			return true;
+		} else {
+			return false;
+		};
+	};
+	main{
+		int test = 0;
+		boolean res = isEquals0(test);
+		write("is Equals ? ");
+		writeln(res);
+	}
+	
+}
