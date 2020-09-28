@@ -1,0 +1,844 @@
+/*
+__________________________________________________________________
+			RE-INITIALISATION DES TAGS HTML
+	Pour éviter les valeurs par défaut différentes suivant les
+	navigateurs. Seuls les tags le plus	souvent utilisés et non
+	dépréciés sont pris en compte.
+	Reset complet : http://meyerweb.com/eric/tools/css/reset/
+__________________________________________________________________
+*/
+
+html, body, div, span, applet, iframe,
+h1, h2, h3, h4, h5, h6, p, pre,
+a, img, strong, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	font-weight: normal;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+body {
+	line-height: 1;
+	min-height: 100%;
+	font: 13px/1.4 cursive;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+body {
+	font: 13px/1.4 cursive;
+  	color: #404040;
+	background: #9ac5e7 url(../images/fond.png) repeat;
+	margin-bottom: 2.5%;
+}
+
+h3 {
+	text-align: center;
+	font-size: 25px;
+	font-style: italic;
+	text-decoration: underline;
+	padding-bottom: 0.5%;
+}
+
+.error{
+	display: block;
+	border: solid 2px #A00000;
+	border-radius: 10px;
+	text-align: center;
+	color: #A00000;
+	background-color: #F6F1DF;
+	font-weight: bold;
+	padding: 5px;
+	margin: 1% 2%;
+}
+
+label {
+	line-height: 20px;
+}
+
+input {
+	border: 1px solid grey;
+	border-radius: 5px;
+}
+
+input[type=submit] {
+	position: relative;
+	margin: 1% auto 2% auto;
+    display: block;
+    transform: translateX(-50%);
+	border: 2px solid #307883;
+	background-color: rgba(245, 245, 220, 0.9);
+	border-radius: 10px;
+	padding: 0.5% 0%;
+}
+
+header, #mapid, #index_infos {
+	border: 2px solid #307883;
+	border-radius: 10px;
+	background-color: #F6F1DF;
+}
+
+header {
+	position: fixed;
+	display: block;
+	width: 96%;
+	top: 0.5%;
+	margin-left: 2%;
+	height: 70px;
+	z-index: 1;
+}
+
+header a[href*="index"] img {
+	position: absolute;
+	margin-left: 5px;
+    height: 70px;
+    padding-right: 30%;
+}
+
+a.item_menu{
+	position: relative;
+	display: inline-block;
+	float: right;
+	margin-top: 2px;
+	height: 65px;
+	width: 100px;
+}
+
+a.item_menu[href*="connexion"]  {
+	background: url(../images/connexion_icon.png) no-repeat;
+	background-size: 100% 100%;
+}
+a.item_menu[href*="connexion"]:hover {
+	background: url(../images/connexion_icon_hover.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+
+a.item_menu[href*="deconnexion"]  {
+	background: url(../images/deconnexion_icon.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+a.item_menu[href*="deconnexion"]:hover {
+	background: url(../images/deconnexion_icon_hover.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+a.item_menu[href*="rdvs"]  {
+	background: url(../images/rdv_icon.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+a.item_menu[href*="rdvs"]:hover {
+	background: url(../images/rdv_icon_hover.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+a.item_menu[href*="profil"]  {
+	background: url(../images/profil_icon.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+a.item_menu[href*="profil"]:hover {
+	background: url(../images/profil_icon_hover.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+a.item_menu[href*="planning"]  {
+	background: url(../images/planning_icon.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+a.item_menu[href*="planning"]:hover {
+	background: url(../images/planning_icon_hover.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+#general_contenu{
+	min-height: 100%;
+	margin-top: 85px;
+}
+
+footer {
+	position: fixed;
+	right: 0px;
+	margin: 2em 0 0 0;
+	padding-right: 1em;
+	bottom: 0px;
+	font-size: 10px;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+.geodoc_trait {
+	margin: auto auto;
+	width: 20%;
+	margin-bottom: 5%;
+	border-bottom: 2px solid #307883;
+	padding-top: 5%;
+}
+
+/* ----------------------------------------------------------- Espacer les lignes des formulaires --------------------------------------------------------- */
+
+.connexion_encadre form > *, #profil_patient > *, #profil_mdp > *, #inscription_medecin_med > *, #inscription_medecin_base > * {
+	margin-top: 1%;
+}
+
+/* ----------------------------------------------------------- Index --------------------------------------------------------- */
+
+#form_infPerso {
+	margin: 10px;
+	border-style: solid;
+	border-width: 2px;
+	padding: 2px;
+}
+
+.index_rech_form {
+	position: absolute;
+	right: 2.4%;
+	margin-top: 0.5%;
+	min-height: 15%;
+	max-height: 58%;
+	width: 19%;
+	border: 2px solid #307883;
+	border-radius: 10px;
+	z-index: 0;
+	background-color: rgba(245, 245, 220, 0.75);
+}
+
+.index_rech_form input[type=submit]{
+    margin-bottom: 5%;
+    width: 30%;
+    left: 15%;
+}
+
+.index_rech_form form label{
+	position: absolute;
+	left: 5%;
+}
+
+.index_rech_form select {
+	position: absolute;
+	text-align: center;
+	right: 5%;
+	width: 40%;
+}
+
+.index_rech_form form h4 {
+	position: relative;
+	font: bold;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+	padding: 2%;
+	border-bottom: 1px solid #307883;
+}
+
+.index_rech_form form #div_spe, .index_rech_form form #div_dist, .index_rech_form form #div_loc{
+	padding: 2%;
+}
+
+.index_rech_form form #div_dist {
+	padding-bottom: 2%;
+}
+
+.index_rech_form form #div_dist select, .index_rech_form form #div_spe select {
+	border: 1px solid grey;
+	border-radius: 5px;
+}
+
+.index_rech_form form #div_loc {
+	text-align: center;
+}
+
+.index_rech_form form #div_loc_answer{
+	position: relative;
+	padding-top: 10%;
+}
+
+#mapid {
+	position: absolute;
+	margin-left: 2%;
+	height: 85%;
+	width: 96%;
+	z-index: -1;
+}
+
+#index_infos {
+	display: block;
+	position: absolute;
+	margin: 2%;
+	top: 68%;
+	min-height: 25%;
+	bottom: 2%;
+	width: 96%;
+	text-align: center;
+	text-decoration-color: black;	
+	background-color: #F6F1DF;
+}
+
+#index_infos p {
+	font-size: 15px;
+	position: relative;
+	margin: auto;
+	width: 80%;
+	padding-bottom: 0.5%;
+}
+
+/* ----------------------------------------------------------- Connexion / Inscription --------------------------------------------------------- */
+
+.connexion_table {
+	position: absolute;
+	width: 100%;
+	margin: auto;
+	padding-bottom: 2.5%;
+}
+
+.connexion_encadre {
+	position: relative;
+	border: 2px solid #307883;
+	border-radius: 10px;
+	background-color: rgba(245, 245, 220, 0.9);
+	padding: 3%;
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+.connexion_encadre form {
+	padding-bottom: 10%;
+}
+
+#connexion_encadre_medecin {
+	position: relative;
+	width: 53.5%;
+	margin-left: 20%;
+	border: 2px solid #8B0000;
+	border-radius: 10px;
+	background-color: rgba(245, 245, 220, 0.9);
+	padding: 3%;
+	margin-bottom: 2%;
+	color: black;
+}
+
+#connexion_inscription_text a {
+	text-decoration: none;
+}
+
+.connexion_table h2 {
+	font-weight: bold;
+	text-decoration: underline;
+	text-decoration-color: #307883;
+	font-size: 15px;
+}
+
+.connexion_table form > input[type=submit]{
+	margin-top: 5%;
+	left: 45%;
+}
+
+.connexion_table tr td:last-child p:first-child {
+	text-align: center;
+}
+
+.connexion_table tr td:last-child p:first-child a{
+	text-decoration: none;
+}
+
+.connexion_table tr td:last-child p:first-child a:hover{
+	text-decoration: underline;
+}
+
+.connexion_table #connexion_co_title, .connexion_table #connexion_co_text {
+	width: 20%;
+	margin: 4%;
+	padding: 1%;
+}
+
+.connexion_table #connexion_inscription_title, .connexion_table #connexion_inscription_text {
+	width: 20%;
+	margin: 4%;
+	padding: 1%;
+}
+
+.connexion_table #connexion_inscription_text {
+	border-left: 2px solid #307883;
+}
+
+.connexion_table input {
+	position: absolute;
+	width: 35%;
+	right: 5%;
+}
+
+
+/* ----------------------------------------------------------- Profil --------------------------------------------------------- */
+
+#profil_table {
+	margin: auto auto;
+}
+
+#profil_table td {
+	width: 1%;
+	padding: 1% 2%;
+}
+
+#profil_patient, #profil_mdp, #profil_medecin, #profil_suppr, #profil_confirmation {
+	position: relative;
+	margin: auto auto;
+	border: 2px solid #307883;
+	padding: 0% 5% 5% 5%;
+	border-radius: 10px;
+	background-color: rgba(245, 245, 220, 0.9);
+	text-align: center;
+	max-width: 80%;
+}
+
+#profil_suppr {
+	margin-top: 3%;
+	margin-bottom: 5%;
+	padding-bottom: 4%;
+	border: 2px solid darkred;
+}
+
+#profil_suppr > * {
+	text-align: center;
+}
+
+#profil_patient label, #profil_mdp label {
+	position: absolute;
+	left: 5%;
+}
+
+#profil_patient input, #profil_mdp input {
+	position: absolute;
+	right: 5%;
+}
+
+#profil_medecin input[type=text] {
+	width: 7%;
+	text-align: center;
+}
+
+#profil_medecin_cb, #profil_medecin_tp {
+	margin-top: 5%;
+	text-align: left;
+}
+
+h4 {
+	text-align: center;
+	font-weight: bold;
+	padding-bottom: 5%;
+	padding-top: 2%;
+}
+
+#profil_suppr input[type=submit] {
+	border: 2px solid darkred;	
+	margin-top: 5%;
+	width: 30%;
+	left: 15%;
+	margin-bottom: 2%;
+}
+
+#profil_confirmation {
+	width: 40%;
+	margin: auto auto;
+	padding-bottom: 2%;
+}
+
+#profil_save input[type=submit] {
+	position: relative;
+	margin-top: 2%;
+	width: 10%;
+	left: 5%;
+}
+
+
+/* ----------------------------------------------------------- Inscription Medecin --------------------------------------------------------- */
+
+#inscription_medecin_details {
+	position: relative;
+	margin: auto auto;
+	border: 2px solid #307883;
+	border-radius: 10px;
+	background-color: rgba(245, 245, 220, 0.9);
+	width: 30%;
+	padding: 2%;
+	margin-bottom: 5%;
+}
+
+#inscription_medecin_base, #inscription_medecin_med {
+	padding-bottom: 5%;
+}
+
+#inscription_medecin_details input[type=submit] {
+	width: 20%;
+	left: 10%;
+	margin-bottom: 2%;
+}
+
+#inscription_medecin_details input[type=text], #inscription_medecin_details input[type=password], #inscription_medecin_details select {
+	position: absolute;
+	border: 1px solid grey;
+	border-radius: 5px;
+	right: 5%;
+}
+
+#inscription_medecin_details select {
+	text-align: center;
+}
+
+/* ----------------------------------------------------------- RDVS --------------------------------------------------------- */
+
+
+.rdv_article {
+	position: relative;
+	width: 100%;
+	margin: auto;
+}
+
+.rdv_article > * {
+	position: relative;
+	width: 100%;
+}
+
+.rdv_fais, #rdv_pris {
+	position: relative;
+	margin: auto auto;
+	border: 2px solid #307883;
+	padding: 0% 5% 2% 5%;
+	border-radius: 10px;
+	background-color: rgba(245, 245, 220, 0.9);
+	text-align: center;
+	margin-top: 2%;
+	margin-bottom: 5%;
+	width: 40%;
+	max-width: 40%;
+}
+
+.extra-info_td {
+	margin: auto;
+}
+
+.extra-info {
+	margin-top: 1%;
+	position: relative;
+}
+
+
+
+.extra-info form textarea{
+	overflow-y: scroll;
+	resize: none;
+}
+
+.extra-info form input[type=text]{
+	width: 50%;
+	text-align: center;
+	margin-bottom: 5%;
+}
+
+.extra-info input[type=submit]{
+	margin-top: 3%;
+}
+
+
+.rdv_fais th, #rdv_pris th {
+	font-weight: bold;
+	padding-bottom: 5%;
+}
+
+.rdv_details {
+	position: absolute;
+	right: 5%;
+}
+
+.rdv_date {
+	position: absolute;
+	left: 5%;
+}
+
+.extra-resume {
+	margin-bottom: 5%;
+}
+
+
+/* ----------------------------------------------------------- Planning --------------------------------------------------------- */
+
+.planning caption, #planning_creneaux caption, #planning_urgences caption {
+	font-weight: bold;
+	padding-top: 1%;
+	padding-bottom: 3%;
+}
+
+#planning_table {
+	position: relative;
+	width: 100%;
+	margin: auto;
+}
+
+#planning select {
+	text-align: center;
+}
+
+.planning, #planning_creneaux {
+	border: 2px solid #307883;
+	background-color: rgba(245, 245, 220, 0.9);
+	padding: 0% 3% 3% 3%;
+	border-radius: 10px;
+	margin: 2% auto;
+	width: 80%;
+}
+
+.planning > table, #planning_creneaux > table{
+	position: relative;
+	width: 100%;
+}
+
+#planning_table select {
+	border: 1px solid grey;
+	border-radius: 5px;
+}
+
+/*------------- Urgences -------------*/
+
+#planning_urgences {
+	position: relative;
+	margin: 3%;
+	width: 50%;
+	left: 17.3%;
+	border: 2px solid darkred;
+	padding: 1% 5%;
+	border-radius: 10px;
+	background-color: rgba(245, 245, 220, 0.9);
+	text-align: center;
+}
+
+#planning_urgences caption {
+	width: 100%;
+}
+
+#planning_urgences tbody {
+	position: relative;
+	left: -3%;
+}
+
+#planning_urgences td {
+	width: 1%;
+}
+
+#planning_urgences_patient {
+	text-align: center;
+}
+
+/*------------- Planning -------------*/
+
+.planning > td {
+	width: 90%;
+}
+
+.btnVoirPlanning {
+	width: 10%;
+	text-align: center;
+	left: 5%;
+	margin-top: 2%;
+	margin-bottom: 3%;
+}
+
+.planning tr:first-child td:first-child {
+	text-align: center;
+}
+
+.planning_noDispo {
+	position: relative;
+	left: 32%;
+}
+
+/*-------------- Creneaux ------------*/
+
+#planning_creneaux {
+	margin: auto auto;
+}
+
+#planning_creneaux h4 {
+	padding-bottom: 2%;
+}
+
+#planning_creneaux p {
+	position: relative;
+}
+
+.planning_planning_creneau, .planning_creneaux_creneau p, #planning_add_creneau{
+	text-align: center;
+	margin: auto;
+	border: 1px solid #307883;
+	border-radius: 10px;
+}
+
+.planning_planning_creneau {
+	text-align: center;
+	padding: 1% 0;
+	margin: 1% 0;
+}
+
+.planning_planning_creneau p {
+	padding-top: 1%;
+}
+
+.planning_horaires_jour {
+	text-align: center;
+	font-weight: bold;
+}
+
+#planning_creneaux tr:not(:last-child) td:last-child input[type=submit] {
+	margin: auto;
+	margin-left: 50%;
+	width: 20%;
+	margin-bottom: 3%;
+	margin-top: 0.5%; 
+}
+
+#planning_add_creneau input[type=submit] {
+	margin-top: 10%;
+	left: 20%;
+	width: 40%;
+}
+
+#planning_add_creneau td {
+	width: 10%;
+}
+
+.planning input[type=button] {
+	border: 1px solid #307883;
+}
+
+.rdv_occupe {
+	position: relative;
+	text-align: left;
+	border: 1px solid darkgreen;
+	border-radius: 10px;
+	margin: 1%;
+	padding: 0 2%;
+}
+
+.rdv_occupe > form, .rdv_libre > form {
+	width: 100%;
+}
+
+.btnSuppr_rdv {
+	position: relative;
+	width: 60%;
+	left: 350%;
+	margin-bottom: 10%;
+}
+
+.rdv_occupe input[type=button] {
+	position: relative;
+	left: 5%;
+}
+
+.rdv_libre {
+	text-align: center;
+}
+
+#planning .rdv_libre td {
+	position: relative;
+	left: 170%;
+}
+
+
+.rdv_libre input[type=text] {
+	width: 90%;
+}
+
+.btnAffecter_rdv {
+	width: 40%;
+	left: 20%;
+}
+
+.btnDeplacer_rdv {
+	position: relative;
+	width: 40%;
+	left: 15%;
+}
+
+.btnModif_rdv {
+	position: relative;
+	left: 15%;
+	width: 30%;
+}
+
+.btnLibre_rdv {
+	position: relative;
+	width: 20%;
+	left: 10%;
+}
+
+.btnSuppr_Incomingrdv {
+	position: relative;
+	width: 20%;
+	left: 10%;
+}
+
+.planning_horaires {
+	position: relative;
+	left: 47%;
+}
+
+.planning_creneau_noDispo{
+	position: relative;
+	left: 30%;
+}
+
+/* ----------------------------------------------------------- Page medecin --------------------------------------------------------- */
+
+#page_med_info {
+	position: relative;
+	margin: auto auto;
+	border: 2px solid #307883;
+	padding: 0% 1% 1% 1%;
+	border-radius: 10px;
+	background-color: rgba(245, 245, 220, 0.9);
+	width: 20%;
+	margin-bottom: 3%;
+}
+
+.page_med_result, #page_med_pro {
+	text-align: center;
+}
+
+#page_med_pro * {
+	margin-top: 4%;
+}
+
+#page_medecin .planning {
+	width: 50%;
+}
+
+#page_medecin .rdv_libre td {
+	position: relative;
+	left: 100%;
+}
+
+.page_medecin_info_occupe {
+	position: relative;
+	left: 40%;
+	padding-bottom: 1%;
+}
+
+/* ----------------------------------------------------------- A propos --------------------------------------------------------- */
+
+#apropos h4 {
+	background-color: beige;
+	padding: 2%;
+	margin: 20% auto;
+	width: 80%;
+	border: 2px solid #307883;
+	border-radius: 10px;
+}
